@@ -1,0 +1,77 @@
+body {
+    background-color: #179c4a;
+}
+
+.container {
+    max-width: 1000px;
+    height: auto;
+    border: #a6a6a6 3px solid;
+    margin: auto;
+    border-radius: 20px;
+    margin-top: 10px;
+    text-align: center;
+}
+
+#dealerArea {
+    width: 500px;
+    height: 500px;
+    border: #a6a6a6 2px solid;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+#playerArea {
+    width: 500px;
+    height: 500px;
+    border: #a6a6a6 2px solid;
+    border-radius: 10px;
+    margin: 10px auto;
+}
+
+#deck {
+    margin: 15px;
+}
+
+.card {
+    height: 150px;
+    width: 95px;
+    border: #8f8f8f 2px solid;
+    float: left;
+    display: inline;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    color: #000;
+    margin: 5px;
+    border-radius: 5px;
+    background-color: #fff;
+    padding: 5px;
+}
+
+.isFlipped {
+    display: inline-block;
+    background: url('.//img/card-back.jpg') center;
+    background-size: 200px;
+    height: 150px;
+    width: 95px;
+    margin: auto;
+}
+
+.card .suit {
+    background-image: url(https://www.thatsoftwaredude.com/images/post/0f631eeb-6c4a-4bfd-9f86-e0a08ae8584b.png);
+    height: 100px;
+    width: 90px;
+    margin: auto;
+}
+
+.card .diamonds {
+    background-position-y: 100px;
+}
+
+.card .hearts {
+    background-position-x: 90px;
+}
+
+.card .clubs {
+    background-position-x: 90px;
+    background-position-y: 100px;
+}
