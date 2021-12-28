@@ -4,10 +4,12 @@ let deck = [];
 let dealerHand = [];
 let playerHand = [];
 
+// Function to clear all things inside a HTML object.
 function clearBox(elementId) {
     document.getElementById(elementId).innerHTML = '';
 }
 
+// Populates the tempDeck array with card objects and returns tempDeck.
 function createDeck() {
 
     let tempDeck = [];
@@ -26,13 +28,11 @@ function createDeck() {
 
     }
 
-    for (let x in tempDeck) {
-        // console.log(tempDeck)
-    }
     return tempDeck;
 
 }
 
+// ONLY USED FOR TESTING!!!! Renders all cards in the deck of 52 cards.
 function renderDeck() {
     clearBox('deck');
     for (let i = 0; i < deck.length; i++) {
@@ -53,6 +53,7 @@ function renderDeck() {
 
 }
 
+// Calls createDeck function to reset deck to 52 cards and shuffles the order.
 function shuffleDeck() {
 
     deck = createDeck();
@@ -67,13 +68,16 @@ function shuffleDeck() {
 
     }
 
-    // renderDeck();
 }
 
+// This is used only for the initial deal.
 function dealSetup() {
+
+    // Resets player and dealer's hands.
     playerHand = [];
     dealerHand = [];
 
+    // Adds first card from deck to players hand then removes it from the deck and does the same for the dealer.
     for (let i = 0; i < 2; i++) {
 
         playerHand.push(deck[0]);
@@ -83,8 +87,10 @@ function dealSetup() {
         deck.splice(0,1);
     }
 
+    // Clears dealerCard area of the HTML.
     clearBox('dealerCards');
 
+    // Adds div's for each card and displays the value and suit of the card except the first one dealt to the dealer which displays a card back img.
     for (let i = 0; i < dealerHand.length; i++) {
         let card = document.createElement("div");
         let value = document.createElement("div");
@@ -113,8 +119,10 @@ function dealSetup() {
         
     }
 
+    // Clears playerCards area of the HTML.
     clearBox('playerCards');
 
+    // Adds div's for each card and displays the suit and value of the cards in the players hand.
     for (let i = 0; i < playerHand.length; i++) {
         let card = document.createElement("div");
         let value = document.createElement("div");
@@ -132,10 +140,12 @@ function dealSetup() {
    
     }
 
+    // Updates player points after intial deal.
     updatePlayerPoints();
 
 }
 
+// Function to count the number that the player's cards add up to.
 function updatePlayerPoints() {
 
     let playerPoints = 0;
@@ -170,6 +180,7 @@ function updatePlayerPoints() {
 
 }
 
+// Function to add the points of the cards in the dealer's hand, this should only be called once the face down card is flipped over.
 function updateDealerPoints() {
 
     let dealerPoints = 0;
@@ -204,9 +215,9 @@ function updateDealerPoints() {
 
 }
 
+// Calls functions necessary at the first load of the website.
 function load() {
     deck = createDeck();
-    // renderDeck();
     shuffleDeck();
 }
 
