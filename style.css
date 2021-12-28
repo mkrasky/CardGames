@@ -1,3 +1,7 @@
+* {
+    box-sizing: border-box;
+}
+
 body {
     background-color: #179c4a;
 }
@@ -29,7 +33,7 @@ body {
 }
 
 #deck {
-    margin: 15px;
+    
 }
 
 .card {
@@ -40,6 +44,7 @@ body {
     display: inline;
     text-align: center;
     font-family: Arial, Helvetica, sans-serif;
+    font-size: 20px;
     color: #000;
     margin: 5px;
     border-radius: 5px;
@@ -53,14 +58,13 @@ body {
     background-size: 200px;
     height: 150px;
     width: 95px;
-    margin: auto;
+    margin: 5px;
 }
 
 .card .suit {
     background-image: url(https://www.thatsoftwaredude.com/images/post/0f631eeb-6c4a-4bfd-9f86-e0a08ae8584b.png);
     height: 100px;
-    width: 90px;
-    margin: auto;
+    width: 85px;
 }
 
 .card .diamonds {

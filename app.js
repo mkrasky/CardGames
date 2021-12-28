@@ -129,13 +129,78 @@ function dealSetup() {
         
         document.getElementById("playerCards").appendChild(card);
         value.innerHTML = playerHand[i].Value;
-
-        
+   
     }
 
-    
-    
-    
+    updatePlayerPoints();
+
+}
+
+function updatePlayerPoints() {
+
+    let playerPoints = 0;
+
+    for (let i = 0; i < playerHand.length; i++) {
+
+        let temp = 0;
+
+        switch (playerHand[i].Value) {
+            case 'A':
+                temp = 11;
+                break;
+            case 'K':
+                temp = 10;
+                break;
+            case 'Q':
+                temp = 10;
+                break;
+            case 'J':
+                temp = 10;
+                break;
+            default:
+                temp = parseInt(playerHand[i].Value);
+                break;
+        }
+
+        playerPoints += temp;
+
+    }
+
+    document.getElementById('playerPoints').innerHTML += playerPoints;
+
+}
+
+function updateDealerPoints() {
+
+    let dealerPoints = 0;
+
+    for (let i = 0; i < dealerHand.length; i++) {
+
+        let temp = 0;
+
+        switch (dealerHand[i].Value) {
+            case 'A':
+                temp = 11;
+                break;
+            case 'K':
+                temp = 10;
+                break;
+            case 'Q':
+                temp = 10;
+                break;
+            case 'J':
+                temp = 10;
+                break;
+            default:
+                temp = parseInt(dealerHand[i].Value);
+                break;
+        }
+
+        dealerPoints += temp;
+
+    }
+
+    document.getElementById('dealerPoints').innerHTML += dealerPoints;
 
 }
 
