@@ -52,7 +52,7 @@ body {
     padding: 5px;
 }
 
-.isFlipped {
+#isFlipped {
     display: inline-block;
     background: url('.//img/card-back.jpg') center;
     background-size: 200px;
