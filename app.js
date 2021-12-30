@@ -30,6 +30,7 @@ function createDeck() {
 
     }
 
+    
     return tempDeck;
 
 }
@@ -58,8 +59,6 @@ function renderDeck() {
 // Calls createDeck function to reset deck to 52 cards and shuffles the order.
 function shuffleDeck() {
 
-    deck = createDeck();
-
     for (let i = 0; i < 1000; i++){
     let position1 = Math.floor(Math.random() * deck.length);
     let position2 = Math.floor(Math.random() * deck.length);
@@ -70,18 +69,23 @@ function shuffleDeck() {
 
     }
 
+
 }
 
 // This is used only for the initial deal.
 function dealSetup() {
 
-    // Resets player and dealer's hands.
+    // Resets player and dealer's hands and deck.
     playerHand = [];
     dealerHand = [];
     dealerPoints = 0;
     playerPoints = 0;
+
+    deck = createDeck();
+    shuffleDeck();
     
     document.getElementById('dealerPoints').innerHTML = 'Points: ';
+    document.getElementById('playerPoints').innerHTML = 'Points: ';
 
     // Adds first card from deck to players hand then removes it from the deck and does the same for the dealer.
     for (let i = 0; i < 2; i++) {
@@ -197,7 +201,14 @@ function updatePlayerPoints() {
 
     }
 
-    document.getElementById('playerPoints').innerHTML += playerPoints;
+    // This for loop is to let the A's be equal to 11 unless the points go over 21 then it will be equal to 1.
+    for (let i = 0; i < playerHand.length; i++) {
+        if (playerPoints > 21 && playerHand[i].Value == 'A') {
+            playerPoints = playerPoints - 10;
+        }
+    }
+
+    document.getElementById('playerPoints').innerHTML = `Points: ${playerPoints}`;
 
 }
 
@@ -257,6 +268,10 @@ function hitPlayer() {
         value.innerHTML = playerHand[i].Value;
    
     }
+
+    if (playerPoints > 21) {
+        dealerTurn();
+    }
 }
 
 // Function for if the dealer needs to hit.
@@ -298,7 +313,7 @@ function dealerTurn() {
     flipCard();
     updateDealerPoints();
 
-    while (dealerPoints < 17) {
+    while (dealerPoints < 17 && dealerPoints < playerPoints && playerPoints <= 21) {
         hitDealer();
     }
 }
@@ -307,6 +322,7 @@ function dealerTurn() {
 function load() {
     deck = createDeck();
     shuffleDeck();
+    dealSetup();
 }
 
 window.onload = load;

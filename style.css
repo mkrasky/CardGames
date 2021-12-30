@@ -4,6 +4,8 @@
 
 body {
     background-color: #179c4a;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
 }
 
 .container {
@@ -32,8 +34,14 @@ body {
     margin: 10px auto;
 }
 
-#deck {
-    
+.btn {
+    background-color: #25fc77;
+    color: #000;
+    border: 2px solid #8f8f8f;
+    border-radius: 10px;
+    font-size: 26px;
+    padding: 5px;
+    margin: 10px;
 }
 
 .card {
@@ -42,8 +50,6 @@ body {
     border: #8f8f8f 2px solid;
     float: left;
     display: inline;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
     font-size: 20px;
     color: #000;
     margin: 5px;
@@ -76,6 +82,6 @@ body {
 }
 
 .card .clubs {
-    background-position-x: 90px;
+    background-position-x: 89px;
     background-position-y: 100px;
 }

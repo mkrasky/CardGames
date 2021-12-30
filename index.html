@@ -12,13 +12,6 @@
     <h1>This is a BlackJack game I made with HTML, CSS and JavaScript</h1>
     <script src="app.js"></script>
 
-    <button class="btn" id="shuffle" onclick="shuffleDeck()">Shuffle Deck</button>
-    <button class="btn" id="deal" onclick="dealSetup()">Deal Hand</button>
-    <button class="btn" id="deal" onclick="hitPlayer()">Hit</button>
-    <button class="btn" id="deal" onclick="hitDealer()">Hit Dealer</button>
-    <button class="btn" id="deal" onclick="standPlayer()">Stand</button>
-    <br>
-
     <div class="container" id="game_board">
 
         <div id="dealerArea">
@@ -31,6 +24,11 @@
             <h3>Player</h3>
             <h3 id="playerPoints">Points: </h3>
             <div id="playerCards"></div>
+        </div>
+
+        <div id="playerButtons">
+            <button class="btn" id="hit" onclick="hitPlayer()">Hit!</button>
+            <button class="btn" id="stand" onclick="standPlayer()">Stand</button>
         </div>
         <div id="deck">
 
